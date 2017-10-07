@@ -1,8 +1,10 @@
+# This code assumes that the required data set is available in the 
+# working directory and the working directory is set to the 
+# root of the extracted dataset folder.
+
 # dplyr - used for grouping and summarizing the data
 library(dplyr)
 
-# set the working directory
-setwd("~/Downloads/UCI HAR Dataset")
 # read the test data set
 test <- read.table("test/X_test.txt", na.strings="")
 y_test <- read.table("test/y_test.txt", na.strings="")
@@ -46,3 +48,6 @@ grouped_data <- group_by(mean_std_data, subject, activity)
 
 # Summarize the data with mean of each subject-activity observation
 summarised_data <- summarize_all(grouped_data, function(x) mean(x, na.rm = TRUE))
+
+# Writes the output to `output.txt` in the working directory
+write.table(summarised_data, row.name = FALSE, file = "output.txt")
