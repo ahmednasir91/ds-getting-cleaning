@@ -4,11 +4,11 @@ The data is about the experiments have been carried out with a group of 30 volun
 ## Variables ##
 
 - First the train and test data is loaded
--- `test` has the data from the sensors of 30% volunteers.
--- `train` has data from the sensors of 70% volunteers.
--- `y_test` are the labels of the test data.
--- `y_train` are the labels of the train data.
--- `subject_test` is the data about the subjects of test data.
--- `subject_train` is the data about the subjects of train data.
+- `test` has the data from the sensors of 30% volunteers.
+- `train` has data from the sensors of 70% volunteers.
+- `y_test` are the labels of the test data.
+- `y_train` are the labels of the train data.
+- `subject_test` is the data about the subjects of test data.
+- `subject_train` is the data about the subjects of train data.
 
 There are **561** features that are collected which are read into the `features` variable.
