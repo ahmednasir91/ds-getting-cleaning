@@ -5,3 +5,6 @@ The `run_analysis.R` script reads the data from the files provided, merges them,
 - Set the working directory to extracted dataset folder.
 - Run the script `run_analysis.R`
 - The script will create an output file `output.txt` with the summarized data in the working directory.
+
+### Dependencies ###
+- `dplyr` library.
