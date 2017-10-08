@@ -13,7 +13,8 @@ The data is about the experiments have been carried out with a group of 30 volun
 - `features` contains **561** features that are collected.
 - `merged` data contains the samples of both the `test` & `train` and the labels of activity.
 - `activity_labels` labels of the activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING).
-- `grouped_data` is the data grouped by Subject and Activity.
+- `mean_std_data` contains only the mean and standard deviation variables of the observations.
+- `grouped_data` is the data grouped by Subject and Activity only the variables which have mean and standard deviation.
 - `summarised_data` is the summary of the groups with the average of each variable for each activity and subject.
 
 ## Summarized Data Variables ##
@@ -21,12 +22,12 @@ The variables in the summarized data has tokens like `frequency`, `body`, `gyros
 
 |Token|Description|
 |---|---|
-|`time`||
-|`body`||
-|`accelerometer`||
-|`gravity`||
-|`gyroscope`||
-|`Jerk`||
-|`mean`||
-|`std`||
-|`magnitude`||
+|`time`|Time domain signals which are captured at the fixed frequency of 50Hz.|
+|`body`|Readings of the body of the subject.|
+|`frequency`|Fast Fourier transform was applied on time domain signals to obtain frequency signals|
+|`gravity`|The acceleration signal was separated into body and gravity using the low pass filter.|
+|`accelerometer`, `gyroscope`|Sensors that are used to collect the data.|
+|`Jerk-magnitude`|The body linear acceleration and angular velocity were derived in time to obtain Jerk signals.|
+|`mean`|Mean value|
+|`std`|Standard Deviation|
+|`X`,`Y`,`Z`|The 3 axis where the data is collected by the sensors.|
