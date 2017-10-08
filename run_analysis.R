@@ -40,8 +40,14 @@ merged$activity <- activity_labels$V2[merged$activity]
 # Select only columns which have `mean()` or `std()`
 mean_std_data = merged[,colnames(merged)[grep("mean\\(\\)|std\\(\\)|activity|subject", colnames(merged))]]
 
-# Update column names
+# Descriptive column names
 colnames(mean_std_data) <- sub("tG", "time-g", sub("tB", "time-b", sub("fBody", "frequency-body-", sub("\\(\\)", "", colnames(mean_std_data)))))
+# Body-Body is typo - should be one
+colnames(mean_std_data) <- sub("body-Body", "body-", colnames(mean_std_data))
+colnames(mean_std_data) <- sub("Acc", "-accelerometer-", colnames(mean_std_data))
+colnames(mean_std_data) <- sub("Mag", "-magnitude-", colnames(mean_std_data))
+colnames(mean_std_data) <- sub("Gyro", "-gyroscope-", colnames(mean_std_data))
+colnames(mean_std_data) <- gsub("--", "-", colnames(mean_std_data))
 
 # Group the data by Subject and then Activity
 grouped_data <- group_by(mean_std_data, subject, activity)
@@ -51,3 +57,5 @@ summarised_data <- summarize_all(grouped_data, function(x) mean(x, na.rm = TRUE)
 
 # Writes the output to `output.txt` in the working directory
 write.table(summarised_data, row.name = FALSE, file = "output.txt")
+
+summarised_data
